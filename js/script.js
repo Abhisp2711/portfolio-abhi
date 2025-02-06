@@ -1,6 +1,7 @@
 // turn pages when click next or prev button'
 
 const pageTurnBtn = document.querySelectorAll('.nextprev-btn');
+const pageSond = document.getElementById('page-sound');
 
 pageTurnBtn.forEach((el, index) => {
     el.onclick = () => {
@@ -96,3 +97,18 @@ pages.forEach((_, index) => {
         }, 500)
     }, (index + 1) * 200 + 2100)
 })
+
+// adding sound on clicking pageturnBtn
+function playPageTurnSound() {
+    var audio = document.getElementById('page-sound');
+    audio.currentTime = 0; // Rewind to the start
+    audio.play();
+}
+
+document.querySelectorAll('.nextprev-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+      playPageTurnSound();
+      // Additional code to handle page turning
+    });
+});
+  
